@@ -21,6 +21,10 @@ for (const folder of functionFolders) {
     }
 }
 
+// client.once(Events.ClientReady, readyClient => {
+//     console.log(`Ready! Logged in as ${readyClient.user.tag}`);
+// });
+
 console.log('Client is starting up...');
 client.handleEvents();
 client.handleCommands();

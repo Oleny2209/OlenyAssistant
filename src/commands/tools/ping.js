@@ -6,9 +6,11 @@ module.exports = {
         .setDescription('Replies with Pong!'),
     async execute(interaction) {
         const message = await interaction.deferReply({ fetchReply: true });
-        const newMessage = `APT latency: ${client.ws.ping}\nClient Ping: ${message.createdTimestamp - interaction.createdTimestamp}ms`;
+
+        const newMessage = `Client Ping: ${message.createdTimestamp - interaction.createdTimestamp}ms`;
         await interaction.editReply({
             content: newMessage
         });
+        console.log('Ping Command has been executed');
     }
 };
