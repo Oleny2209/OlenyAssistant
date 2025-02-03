@@ -18,17 +18,20 @@ module.exports = (client) => {
                 console.log(`Command: ${command.data.name} has been pass through the handler`);
             }
         }
-        const clientId = '1331293604672700539';
+        const appId = '1331293604672700539';
         const guildId = '1217295823730249728';
         const rest = new REST({ version: '9' }).setToken(process.env.token);
-        try {
+        try{
             console.log('Started refreshing application (/) commands.');
-            await rest.put(Routes.applicationCommands(clientId, guildId), {
-                body: client.handleCommands()
+
+            await rest.put(Routes.applicationGuildCommands(appId, guildId), {
+                body: client.commandArray,
             });
+
             console.log('Successfully reloaded application (/) commands.');
-        } catch (error) {
+        }catch (error){
             console.error(error);
         }
-    }
+
+    };
 };
